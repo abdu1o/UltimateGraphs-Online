@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grapher Online</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.0/cytoscape.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<br>
+<div id="Title">
+    <h2>Sex online</h2>
+</div>
+
+
+<div id="input-container">
+    <div id="input">   
+        <textarea id="matrixInput" rows="7" cols="30" placeholder="Enter the adjacency matrix"></textarea>
+    </div>
+
+    <button onclick="generateGraph()" id="button_create" >Create graph</button>
+</div>
+
+<div id="cy-container">
+    <div id="cy" style="height: 400px; width: 100%;"></div>
+</div>
+
+<script src="scrips.js"></script>
+
+</body>
+</html>
