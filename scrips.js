@@ -1,4 +1,5 @@
-function generateGraph() {
+function generateGraph() 
+{
     var matrixInput = document.getElementById('matrixInput').value;
     var adjacencyMatrix = parseMatrixInput(matrixInput);
 
@@ -34,13 +35,21 @@ function generateGraph() {
     });
 }
 
-function parseMatrixInput(input) {
+function clearGraph() 
+{
+    var cyContainer = document.getElementById('cy');
+    cyContainer.innerHTML = '';
+}
+
+function parseMatrixInput(input) 
+{
     var rows = input.trim().split('\n');
     var matrix = rows.map(row => row.trim().split(/\s+/).map(Number));
     return matrix;
 }
 
-function GenerateElementsFromMatrix(matrix) {
+function GenerateElementsFromMatrix(matrix) 
+{
     var elements = [];
 
     for (var i = 0; i < matrix.length; i++) {
