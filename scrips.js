@@ -35,7 +35,7 @@ function generateGraph()
     });
 }
 
-function clearGraph() 
+function СlearGraph() 
 {
     var cyContainer = document.getElementById('cy');
     cyContainer.innerHTML = '';
@@ -70,3 +70,25 @@ function GenerateElementsFromMatrix(matrix)
 
     return elements;
 }
+
+var nodeMode = false;
+
+function NodePress()
+{
+    var button = document.getElementById('button_node');
+ 
+    if (!nodeMode) 
+    {
+        nodeMode = true;
+        button.style.border = '3px solid #5f008f';
+        button.style.boxShadow = '0 0 10px rgba(0, 0, 0, 1), 0 0 20px rgba(95, 0, 143, 0.8)';
+
+    } 
+    else 
+    {
+        nodeMode = false;
+        button.style.border = '3px solid #410061';
+        button.style.boxShadow = '0 0 10px rgba(0, 0, 0, 1)';
+    }
+}
+

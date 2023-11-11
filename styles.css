@@ -1,16 +1,7 @@
-#cy-container 
-{
-    border: 3px solid #410061; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    padding: 10px; 
-    margin: 0 2.5%;
-    margin-bottom: 20px; 
-}
-
 #Title 
 {
     color: goldenrod;
-    border: 2px solid #410061;
+    border: 3px solid #410061;
     border-left: goldenrod;
     border-right: goldenrod;
     text-align: center;
@@ -20,19 +11,21 @@
     letter-spacing: 1px;
 }
 
-#input-container
- {
-    margin-top: 2%;
-    text-align: center;
+#cy-container 
+{
+    border: 3px solid #410061; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    padding: 10px; 
+    margin: 0 2.5%;
     margin-bottom: 20px;
+    border-radius: 10px; 
 }
 
-#input 
-{
-    padding: 10px;
-    font-size: 22px;
-    margin: 0 auto; 
-    
+#input-container
+ {
+    margin-top: 3%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #button_create 
@@ -65,9 +58,32 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 1), 0 0 20px rgba(95, 0, 143, 0.8);
 }
 
-#button_cancel 
+#button_node
 {
     margin-top: 10px;
+    margin-bottom: 10px;
+    width: 20%;
+    min-width: 200px;
+    max-width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    
+    background: transparent;
+    border: 3px solid #410061; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: goldenrod;
+    cursor: pointer;
+}
+
+#button_node:hover
+{
+    transition: 0.2s;
+    border: 3px solid #5f008f; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1), 0 0 20px rgba(95, 0, 143, 0.8);
 }
 
 #matrixInput
@@ -124,3 +140,5 @@ body
     margin: 0;
     padding: 0;
 }
+
+
