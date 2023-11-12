@@ -46,8 +46,6 @@ function generateGraph()
         }
 }
 
-
-
 function СlearGraph() 
 {
     var cyContainer = document.getElementById('cy');
@@ -97,17 +95,13 @@ function NodePress()
     if (!nodeMode) 
     {
         nodeMode = true;
-        button.style.border = '3px solid #5f008f';
-        button.style.boxShadow = '0 0 10px rgba(0, 0, 0, 1), 0 0 20px rgba(95, 0, 143, 0.8)';
-        
+        button.classList.add('active');
         field.style.cursor = 'crosshair';
     } 
     else 
     {
         nodeMode = false;
-        button.style.border = '3px solid #410061';
-        button.style.boxShadow = '0 0 10px rgba(0, 0, 0, 1)';
-
+        button.classList.remove('active');
         field.style.cursor = 'default';
     }
 }
@@ -155,7 +149,7 @@ function createSingleNode(event)
 function applyGlowEffect() 
 {
     var field = document.getElementById('cy-container');
-    field.style.transition = '0.25s';
+    field.style.transition = '0.2s';
     field.style.boxShadow = '0 0 10px rgba(0, 0, 0, 1), 0 0 20px rgba(95, 0, 143, 0.8)';
 }
 

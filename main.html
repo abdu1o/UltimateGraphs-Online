@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grapher Online</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.0/cytoscape.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/containers.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
 </head>
 <body>
-
-<br>
-<div id="Title">
-    <h2>Sex online</h2>
-</div>
-
-<div id="input-container">
-    <div id="input">   
-        <textarea id="matrixInput" rows="7" cols="30" placeholder="Enter the adjacency matrix"></textarea>
+    <div id="Title" style="width: 100%;">
+        <h2>Sex online</h2>
     </div>
 
-    <button onclick="generateGraph()" id="button_create">Create graph</button>
-</div>
+    <div id="input-container">
+        <div id="input">   
+            <textarea id="matrixInput" rows="7" cols="30" placeholder="Enter the adjacency matrix"></textarea>
+        </div>
 
-<div id="cy-container">
-    <div id="cy" style="height: 350px; width: 100%;"></div>
-</div>
+        <button onclick="generateGraph()" id="button_create">Create graph</button>
+    </div>
 
-<button onclick="СlearGraph()" id="button_create" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Clear</button>
-<button onclick="NodePress()" id="button_node" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Node</button>
+    <div id="cy-container">
+        <div id="cy" style="height: 350px; width: 100%;"></div>
+    </div>
 
-<script src="scripts.js"></script>
+    <button onclick="СlearGraph()" id="button_create" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Clear</button>
+    <button onclick="NodePress()" id="button_node" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Node</button>
+    <button onclick="" id="button_edge" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Edge</button>
+
+    <script src="scripts.js"></script>
 
 </body>
 </html>
