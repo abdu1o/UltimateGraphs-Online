@@ -1,5 +1,6 @@
 var cy;
 var createdNodes = cytoscape({});
+let disableEdgeMode;
 
 function generateGraph() 
 {
@@ -58,23 +59,29 @@ function generateGraph()
         ]
     });
 
-    cy.nodes().on('click', function (event) {
+    cy.nodes().on('click', function (event) 
+    {
         event.target.toggleClass('selected');
     });
 
-    cy.edges().on('click', function (event) {
+    cy.edges().on('click', function (event) 
+    {
         event.target.toggleClass('selected');
     });
 
-    if (cy.nodes().length > 0) {
+    if (cy.nodes().length > 0) 
+    {
         applyGlowEffect();
-    } else {
+    } else 
+    {
         removeGlowEffect();
     }
 }
 
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Delete' || event.key === 'Backspace') {
+document.addEventListener('keydown', function (event) 
+{
+    if (event.key === 'Delete' || event.key === 'Backspace') 
+    {
         removeSelectedElements();
         updateGlowEffect();
     }
@@ -121,3 +128,56 @@ function СlearGraph()
     createdNodes = cytoscape({});
     removeGlowEffect();
 }
+
+function removeSelectedElements() {
+    var selectedNodes = cy.nodes('.selected');
+    var selectedEdges = cy.edges('.selected');
+
+    var deletedNodeNumbers = selectedNodes.map(node => parseInt(node.data('count')));
+
+    createdNodes.remove(selectedNodes);
+    createdNodes.remove(selectedEdges);
+
+    cy.remove(selectedNodes);
+    cy.remove(selectedEdges);
+
+    cy.nodes().forEach(function (node) {
+        var currentNumber = parseInt(node.data('count'));
+        if (currentNumber > Math.max(...deletedNodeNumbers)) {
+            var newNumber = currentNumber - deletedNodeNumbers.filter(num => num < currentNumber).length;
+            var newId = 'singleNode' + newNumber;
+
+            while (cy.getElementById(newId).length > 0) {
+                newNumber++;
+                newId = 'singleNode' + newNumber;
+            }
+
+            node.data('id', newId);
+            node.data('count', newNumber);
+
+            var newNodeElement = cy.getElementById(newId);
+            newNodeElement.off('click');
+            newNodeElement.on('click', function (event) {
+                newNodeElement.toggleClass('selected');
+
+                if (newNodeElement.hasClass('selected')) {
+                    newNodeElement.style({
+                        'border-color': '#daa520',
+                        'color': '#daa520',
+                        'border-width': 1,
+                    });
+                } else {
+                    newNodeElement.style({
+                        'background-color': '#520775',
+                        'border-color': '#33034a',
+                        'color': 'black'
+                    });
+                }
+            });
+        }
+    });
+
+    cy.$(':selected').unselect();
+    updateGlowEffect();
+}
+

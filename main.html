@@ -12,7 +12,7 @@
 <body>
     
     <div id="Title" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
-        <h2 style="margin: 0; text-align: center; flex-grow: 1; padding-left: 125px;">Sex online</h2>
+        <h2 style="margin: 0; text-align: center; flex-grow: 1; padding-left: 125px;">Graph online</h2>
         <div style="display: flex; align-items: center;">
             <a href="https://www.patreon.com/abdu1o" target="_blank">
                 <img src="icons/patreon.png" alt="Patreon Icon" style="height: 50px; margin-left: 10px; cursor: pointer;">
@@ -25,10 +25,11 @@
 
     <div id="input-container">
         <div id="input">   
-            <textarea id="matrixInput" rows="7" cols="30" placeholder="Enter the adjacency matrix"></textarea>
+            <textarea id="matrixInput" rows="7" cols="30" placeholder="Adjacency matrix"></textarea>
         </div>
 
         <button onclick="generateGraph()" id="button_create">Create graph</button>
+        <button onclick="updateMatrixInput()" id="button_matrix" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Create matrix</button>
     </div>
 
     <div id="cy-container">
@@ -37,11 +38,14 @@
 
     <button onclick="СlearGraph()" id="button_create" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Clear</button>
     <button onclick="NodePress()" id="button_node" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Node</button>
-    <button onclick="" id="button_edge" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Edge</button>
+    <button onclick="EdgePress()" id="button_edge" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Edge</button>
+    
 
     <script src="scripts/graph.js"></script>
     <script src="scripts/node.js"></script>
+    <script src="scripts/edge.js"></script>
     <script src="scripts/glow.js"></script>
+    <script src="scripts/matrix.js"></script>
 
 </body>
 </html>

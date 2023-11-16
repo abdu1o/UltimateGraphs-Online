@@ -12,4 +12,12 @@ function removeGlowEffect()
     field.style.boxShadow = '0 0 10px rgba(0, 0, 0, 1)';
 }
 
+function updateGlowEffect()
+{
+    if (cy.nodes().length === 0)
+    {
+        removeGlowEffect();
+    }
+}
+
 document.getElementById('cy-container').addEventListener('click', createSingleNode);

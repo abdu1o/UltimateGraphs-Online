@@ -9,17 +9,15 @@ function NodePress() {
     field.style.cursor = nodeMode ? 'crosshair' : 'default';
 }
 
-function createSingleNode(event) 
-{
-    if (nodeMode) 
-    {
+function createSingleNode(event) {
+    if (nodeMode) {
         cy = cy ? cy : cytoscape({ container: document.getElementById('cy') });
 
         var evt = event.touches ? event.touches[0] : event;
         var position = cy.renderer().projectIntoViewport(evt.clientX, evt.clientY);
-        var nodeId = 'singleNode' + cy.nodes().length;
+        var nodeId = 'singleNode' + Date.now(); 
 
-        createdNodes = cytoscape({}); 
+        createdNodes = cytoscape({});
 
         var newNode = {
             group: 'nodes',
@@ -62,13 +60,12 @@ function createSingleNode(event)
 
         cy.style().update();
 
-        if (cy.nodes().length > 0) 
-        {
+        if (cy.nodes().length > 0) {
             applyGlowEffect();
-        } 
-        else 
-        {
+        } else {
             removeGlowEffect();
         }
     }
 }
+
+
