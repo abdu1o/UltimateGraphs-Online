@@ -141,3 +141,32 @@ function clearHandlers()
     cy.off('tap');
     cy.autoungrabify(false);
 }
+
+function labelEdges() 
+{
+    var edges = cy.edges();
+
+    edges.forEach(function (edge, index) 
+    {
+        if (edge.data('label')) 
+        {
+            var label = '';
+            edge.data('label', label);
+        }
+        else 
+        {
+            var label = 'E' + (index + 1);
+            edge.data('label', label);
+        }
+    });
+
+    cy.style()
+        .selector('edge')
+        .style({
+            'label': 'data(label)',
+            'text-margin-y': '-10px',
+            'font-size': '10px',
+            'font-family': 'Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif'
+        })
+        .update();
+}

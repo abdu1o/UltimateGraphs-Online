@@ -60,9 +60,12 @@ function createSingleNode(event) {
 
         cy.style().update();
 
-        if (cy.nodes().length > 0) {
+        if (cy.nodes().length > 0) 
+        {
             applyGlowEffect();
-        } else {
+        } 
+        else 
+        {
             removeGlowEffect();
         }
     }

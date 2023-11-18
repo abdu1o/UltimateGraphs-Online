@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/containers.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <link rel="stylesheet" type="text/css" href="css/base.css">
+    
 </head>
 <body>
     
@@ -25,11 +26,10 @@
 
     <div id="input-container">
         <div id="input">   
-            <textarea id="matrixInput" rows="7" cols="30" placeholder="Adjacency matrix"></textarea>
+            <textarea id="matrixInput" rows="10" cols="40" placeholder="Adjacency matrix"></textarea>
         </div>
 
         <button onclick="generateGraph()" id="button_create">Create graph</button>
-        <button onclick="updateMatrixInput()" id="button_matrix" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Create matrix</button>
     </div>
 
     <div id="cy-container">
@@ -39,13 +39,21 @@
     <button onclick="СlearGraph()" id="button_create" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Clear</button>
     <button onclick="NodePress()" id="button_node" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Node</button>
     <button onclick="EdgePress()" id="button_edge" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Edge</button>
+
+    <select id="Dropdown" onchange="Selector()" style="margin-left: 2.5%; width: 15%; max-width: 150px;">
+        <option value="0">Select option</option>
+        <option value="1">Signed edges</option>
+        <option value="2">Adjacency matrix</option>
+        <option value="3">Incidence matrix</option>
+    </select>
     
 
     <script src="scripts/graph.js"></script>
     <script src="scripts/node.js"></script>
+    <script src="scripts/general.js"></script>
     <script src="scripts/edge.js"></script>
     <script src="scripts/glow.js"></script>
     <script src="scripts/matrix.js"></script>
-
+    
 </body>
 </html>

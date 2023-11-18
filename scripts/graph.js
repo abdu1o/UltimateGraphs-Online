@@ -76,6 +76,8 @@ function generateGraph()
     {
         removeGlowEffect();
     }
+
+
 }
 
 document.addEventListener('keydown', function (event) 
@@ -98,7 +100,8 @@ function GenerateElementsFromMatrix(matrix)
 {
     var elements = [];
 
-    for (var i = 0; i < matrix.length; i++) {
+    for (var i = 0; i < matrix.length; i++) 
+    {
         var node = { data: { id: 'node' + (i + 1), node_count: i + 1 } };
         elements.push(node);
         createdNodes.add(node);
