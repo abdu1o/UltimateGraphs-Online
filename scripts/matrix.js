@@ -10,7 +10,7 @@ function generateAdjacenciesMatrix()
     var edges = cy.edges();
     
     var nodeCount = nodes.length;
-    var incidenceMatrix = Array.from({ length: nodeCount }, () => Array(nodeCount).fill(0));
+    var adjacencyMatrix = Array.from({ length: nodeCount }, () => Array(nodeCount).fill(0));
 
     edges.forEach(function (edge) 
     {
@@ -19,24 +19,35 @@ function generateAdjacenciesMatrix()
 
         if (sourceIndex !== -1 && targetIndex !== -1) 
         {
-            incidenceMatrix[sourceIndex][targetIndex] = 1;
+            adjacencyMatrix[sourceIndex][targetIndex] = 1;
         }
     });
 
-    return incidenceMatrix;
+    return adjacencyMatrix;
 }
 
-function updateMatrixInput() 
+function updateMatrixInput(choice) 
 {
     var matrixInput = document.getElementById('matrixInput');
-    var incidenceMatrix = generateAdjacenciesMatrix();
+    var newMatrix;
 
-    var matrixText = incidenceMatrix.map(row => row.join(' ')).join('\n');
+    switch(choice)
+    {
+        case 1:
+            newMatrix = generateAdjacenciesMatrix();
+            break;
+        case 2:
+            newMatrix = generateIncidenceMatrix();
+            break;
+
+    }
+     
+    var matrixText = newMatrix.map(row => row.join(' ')).join('\n');
 
     matrixInput.value = matrixText;
 }
 
-function graphToIncidenceMatrix(cy) 
+function generateIncidenceMatrix() 
 {
     var nodes = cy.nodes();
     var edges = cy.edges();
@@ -59,8 +70,15 @@ function graphToIncidenceMatrix(cy)
         var sourceIndex = nodes.indexOf(edge.source());
         var targetIndex = nodes.indexOf(edge.target());
 
-        incidenceMatrix[sourceIndex][j] = 1;
-        incidenceMatrix[targetIndex][j] = 0;
+        if (sourceIndex !== -1) 
+        {
+            incidenceMatrix[sourceIndex][j] = 1;
+        }
+
+        if (targetIndex !== -1) 
+        {
+            incidenceMatrix[targetIndex][j] = -1;
+        }
     }
 
     return incidenceMatrix;

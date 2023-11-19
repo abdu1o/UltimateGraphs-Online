@@ -36,7 +36,8 @@ function generateGraph()
                     'line-color': '#000000',
                     'curve-style': 'bezier',
                     'target-arrow-shape': 'triangle',
-                    'target-arrow-color': '#000000'
+                    'target-arrow-color': '#000000',
+                    'weight': 1
                 }
             },
             {
@@ -76,8 +77,6 @@ function generateGraph()
     {
         removeGlowEffect();
     }
-
-
 }
 
 document.addEventListener('keydown', function (event) 

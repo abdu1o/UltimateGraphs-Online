@@ -13,7 +13,7 @@
 <body>
     
     <div id="Title" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
-        <h2 style="margin: 0; text-align: center; flex-grow: 1; padding-left: 125px;">Graph online</h2>
+        <h2 style="margin: 0; text-align: center; flex-grow: 1; padding-left: 125px;">Sex online</h2>
         <div style="display: flex; align-items: center;">
             <a href="https://www.patreon.com/abdu1o" target="_blank">
                 <img src="icons/patreon.png" alt="Patreon Icon" style="height: 50px; margin-left: 10px; cursor: pointer;">
@@ -26,7 +26,7 @@
 
     <div id="input-container">
         <div id="input">   
-            <textarea id="matrixInput" rows="10" cols="40" placeholder="Adjacency matrix"></textarea>
+            <textarea id="matrixInput" rows="10" cols="40" placeholder="Enter adjacency matrix"></textarea>
         </div>
 
         <button onclick="generateGraph()" id="button_create">Create graph</button>
@@ -39,14 +39,24 @@
     <button onclick="СlearGraph()" id="button_create" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Clear</button>
     <button onclick="NodePress()" id="button_node" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Node</button>
     <button onclick="EdgePress()" id="button_edge" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Edge</button>
+    <button onclick="openPopup()" id="button_edge" style="margin-left: 2.5%; width: 15%; max-width: 150px;">Popup</button>
 
     <select id="Dropdown" onchange="Selector()" style="margin-left: 2.5%; width: 15%; max-width: 150px;">
-        <option value="0">Select option</option>
+        <option default>Select option</option>
         <option value="1">Signed edges</option>
         <option value="2">Adjacency matrix</option>
         <option value="3">Incidence matrix</option>
+        <option value="4">Find shortest path</option>
     </select>
     
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Popup Content</h2>
+            <input type="text" id="popupInput" placeholder="Start node" />
+            <input type="text" id="popupInput" placeholder="Target node" />
+        </div>
+    </div>
 
     <script src="scripts/graph.js"></script>
     <script src="scripts/node.js"></script>
