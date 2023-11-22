@@ -26,25 +26,69 @@ function generateAdjacenciesMatrix()
     return adjacencyMatrix;
 }
 
+function generateAdjacencyList() {
+    if (!cy) {
+        return;
+    }
+
+    const nodes = cy.nodes();
+    const adjacencyList = {};
+
+    nodes.forEach(node => {
+        const neighbors = node.outgoers().map(neighbor => {
+            const neighborIndex = customIndexOf(nodes, neighbor.target());
+            return neighborIndex !== undefined ? neighborIndex + 1 : null;
+        });
+
+        const nodeIndex = customIndexOf(nodes, node) + 1;
+        adjacencyList[nodeIndex] = neighbors.filter(neighbor => neighbor !== null);
+    });
+
+    return adjacencyList;
+}
+
+
+function customIndexOf(array, element) {
+    const index = array.findIndex(item => item === element);
+    return index !== -1 ? index : undefined;
+}
+
 function updateMatrixInput(choice) 
 {
     var matrixInput = document.getElementById('matrixInput');
-    var newMatrix;
+    var newText;
 
-    switch(choice)
+    switch (choice) 
     {
         case 1:
-            newMatrix = generateAdjacenciesMatrix();
+            newText = generateAdjacenciesMatrix();
             break;
         case 2:
-            newMatrix = generateIncidenceMatrix();
+            newText = generateIncidenceMatrix();
             break;
-
+        case 3:
+            newText = generateAdjacencyList();
+            break;
     }
-     
-    var matrixText = newMatrix.map(row => row.join(' ')).join('\n');
 
-    matrixInput.value = matrixText;
+    matrixInput.value = convertToText(newText);
+}
+
+function convertToText(matrix) 
+{
+    if (Array.isArray(matrix)) 
+    {
+        return matrix.map(row => row.join(' ')).join('\n');
+    } 
+    else if (typeof matrix === 'object') 
+    {
+        return Object.keys(matrix).map(nodeId => {
+            const neighbors = matrix[nodeId].join(' ⇒ ');
+            return `${nodeId} ⇒ ${neighbors}`;
+        }).join('\n');
+    }
+
+    return '';
 }
 
 function generateIncidenceMatrix() 

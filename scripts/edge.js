@@ -55,7 +55,6 @@ function SetEdge() {
                         'curve-style': 'bezier',
                         'target-arrow-shape': 'triangle',
                         'target-arrow-color': '#000000',
-                        'weight': 1
                     });
 
                     var newEdgeElement = cy.getElementById(edgeId);
@@ -91,7 +90,8 @@ function SetEdge() {
                             data: {
                                 id: edgeId,
                                 source: sourceNodeId,
-                                target: targetNodeId
+                                target: targetNodeId,
+                                weight: 1
                             }
                         }).style({
                             'width': 2,

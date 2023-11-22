@@ -1,4 +1,4 @@
-#button_create 
+#button_create, #accept_button 
 {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -22,7 +22,7 @@
     transition: 0.2s;
 }
 
-#button_create:hover
+#button_create:hover, #accept_button:hover
 {
     transition: 0.2s;
     border: 3px solid #5f008f; 
